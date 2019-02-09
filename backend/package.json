@@ -1,0 +1,19 @@
+{
+  "name": "book-a-meal",
+  "version": "1.0.0",
+  "description": "book a meal api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nerocodes/book-a-meal.git"
+  },
+  "author": "Nerocodes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nerocodes/book-a-meal/issues"
+  },
+  "homepage": "https://github.com/Nerocodes/book-a-meal#readme"
+}
