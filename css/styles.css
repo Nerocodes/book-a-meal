@@ -1,8 +1,8 @@
 body{
     background-color: #0a1b2c;
     color: #6ca03c;
-    margin: 0;
-    padding: 0;
+    margin: 0rem;
+    padding: 0rem;
 }
 
 .light-color{
@@ -37,7 +37,7 @@ body{
     align-items: center;
 }
 
-.logo{
+.login-main .logo, .signup-main .logo{
     margin-top: 2rem;
 }
 
