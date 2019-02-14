@@ -9,6 +9,98 @@ body{
     color: #f1fffa;
 }
 
+.homepage header{
+    height: 100vh;
+    background-image: url('../img/img4.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgba(12,24,48,0.2);
+    background-blend-mode: overlay;
+}
+
+.homepage .logo h3{
+    margin: 1rem 3rem;
+    font-size: 2rem;
+    font-family: cursive;
+}
+
+.homepage nav{
+    background-color: #0a1b2ca4;
+    border-bottom: 3px solid #6ca03c;
+    display: flex;
+    justify-content: space-between;
+}
+
+.homepage .links{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.homepage .links ul{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 2rem;
+    width: 100%;
+}
+
+.homepage .links ul li{
+    list-style: none;
+}
+
+.homepage .links ul li a{
+    text-decoration: none;
+    color: #f1fffa;
+    font-size: 1.3rem;
+}
+
+.homepage .header-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8rem;
+}
+
+.homepage .header-content .text{
+    font-size: 3rem;
+    font-weight: bolder;
+    color: #f1fffa;
+    opacity: 1;  
+}
+
+.homepage .header-content .cta-btn{
+    text-decoration: none;
+    color: #f1fffa;
+    background-color: #6ca03ca4;
+    font-size: 1.8rem;
+    border: 2px solid #f1fffa;
+    padding: 1rem 4rem;
+    border-radius: 5px;
+}
+
+.homepage .header-content .cta-btn:hover{
+    background-color: #6ca03c;
+}
+
+.homepage .todays-menu{
+    height: 80vh;
+}
+
+.section-title{
+    color: #f1fffa;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.title-hr{
+    width: 10vw;
+    margin: 0 auto;
+    border: 2px solid #6ca03c;
+}
+
 .main{
     display: flex;
 }
