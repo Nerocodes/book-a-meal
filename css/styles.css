@@ -34,6 +34,30 @@ body{
     justify-content: space-between;
 }
 
+.show-menu-btn, .hide-menu-btn{
+    transition: 0.4s;
+    color: #f1fffa;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+.show-menu-btn{
+    align-self: center;
+    position: absolute;
+    right: 3rem;
+}
+
+.homepage .links ul li a:hover, .show-menu-btn:hover, .hide-menu-btn:hover{
+    color: #6ca03c;
+}
+
+#hamburger{
+    position: absolute;
+    visibility: hidden;
+    z-index: -1111;
+}
+
 .homepage .links{
     width: 50%;
     display: flex;
@@ -55,6 +79,7 @@ body{
     text-decoration: none;
     color: #f1fffa;
     font-size: 1.3rem;
+    transition: 0.4s;
 }
 
 .homepage .header-content{
@@ -67,6 +92,7 @@ body{
 .homepage .header-content .text{
     font-size: 3rem;
     font-weight: bolder;
+    text-align: center;
     color: #f1fffa;
     opacity: 1;  
 }
@@ -394,6 +420,64 @@ body{
 }
 
 @media screen and (max-width: 872px){
+    .show-menu-btn, .hide-menu-btn{
+        display: block;
+    }
+
+    .homepage .links ul{
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #0a1b2c;
+        right: -100%;
+        top: 0;
+        margin: 0px;
+        padding-left: 0px;
+        transition: 0.7s;
+    }
+
+    .hide-menu-btn{
+        position: absolute;
+        top: 2.2rem;
+        right: 2.2rem;
+    }
+
+    #hamburger:checked ~ ul{
+        right: 0;
+    }
+
+    .homepage .header-content .cta-btn{
+        padding: 1rem 2rem;
+    }
+
+    .todays-menu .card{
+        margin-bottom: 2rem;
+    }
+
+    .about-us{
+        min-height: 80vh;
+        flex-direction: column;
+    }
+
+    .about-us .left{
+        width: 100%;
+        height: 80vh;
+        border: 0px solid;
+    }
+
+    .about-us .right{
+        width: 100%;
+        padding: 2rem 0px;
+        min-height: 80vh;
+    }
+
+    .about-us .right .about-text{
+        width: 70%;
+    }
+
     .main{
         display: block;
     }
