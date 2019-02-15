@@ -86,7 +86,7 @@ body{
 }
 
 .homepage .todays-menu{
-    height: 80vh;
+    min-height: 80vh;
     background-color: #f1fffa;
     padding: 2rem;
 }
@@ -108,12 +108,13 @@ body{
 .todays-menu .menu-meals{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     margin-top: 2rem;
 }
 
 .todays-menu .card{
     background-color: #0a1b2c;
-    width: 20%;
+    width: 16rem;
     border-radius: 10px 10px 5px 5px;
     min-height: 50vh;
 }
@@ -188,16 +189,77 @@ body{
     background-color: #6ca03c;
 }
 
-.homepage .about-us{
-    height: 80vh;
-    background-color: #f1fffa;
+.about-us{
+    min-height: 80vh;
     display: flex;
+    background-attachment: fixed;
+    background-image: url('../img/img8.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.homepage .about-us .left{
+.about-us .left{
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 3px solid #6ca03c;
+    background-color: #0a1b2c;
 }
 
+.about-us .right{
+    width: 50%;
+    background-color: #0a1b2cad;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.about-us .right .section-title{
+    color: #f1fffa;
+}
+
+.about-text{
+    color: #f1fffa;
+    font-size: 1.4rem;
+    text-align: center;
+    width: 60%;
+    line-height: 2;
+    margin-bottom: 2rem;
+}
+
+.about-us .btn{
+    text-decoration: none;
+    color: #f1fffa;
+    background-color: #6ca03ca4;
+    font-size: 1.4rem;
+    border: 2px solid #f1fffa;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+}
+
+.about-us .left .about-text{
+    font-size: 2rem;
+}
+
+.about-us .left .btn{
+    background-color: #6ca03c00;
+}
+
+.homepage footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0a1b2c;
+    height: 10vh;
+    background-color: #f1fffa;
+    border-top: 2px solid #6ca03c;
+}
+
+/* Login and Sign Up Section */
 .main{
     display: flex;
 }
@@ -219,7 +281,7 @@ body{
     background-blend-mode: overlay;
 }
 
-.left{
+.main .left{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -277,25 +339,25 @@ body{
     color: #6ca03c;
 }
 
-.right{
+.main .right{
     display: flex;
     justify-content: center;
 }
 
-.right .create-account h2{
+.main .right .create-account h2{
     color: #f1fffa;
     text-align: center;
     font-size: 2rem;
     margin-top: 30vh;
 }
 
-.right .create-account p{
+.main .right .create-account p{
     color: #f1fffa;
     text-align: center;
     font-size: 1.5rem;
 }
 
-.right .create-account .btn{
+.main .right .create-account .btn{
     display: block;
     background-color: rgba(0,0,0,0);
     color: #f1fffa;
@@ -309,12 +371,12 @@ body{
     text-align: center;
 }
 
-.right .create-account .btn:hover{
+.main .right .create-account .btn:hover{
     color: #6ca03c;
     border: solid 1px #6ca03c;
 }
 
-.copyright{
+.main .copyright{
     position: fixed;
     top: 95vh;
     margin: 0 auto;
