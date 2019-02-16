@@ -21,13 +21,13 @@ body{
     background-blend-mode: overlay;
 }
 
-.homepage .logo h3{
+.main-nav .logo h3{
     margin: 1rem 3rem;
     font-size: 2rem;
     font-family: cursive;
 }
 
-.homepage nav{
+.main-nav{
     background-color: #0a1b2ca4;
     border-bottom: 3px solid #6ca03c;
     display: flex;
@@ -48,7 +48,7 @@ body{
     right: 3rem;
 }
 
-.homepage .links ul li a:hover, .show-menu-btn:hover, .hide-menu-btn:hover{
+.main-nav .links ul li a:hover, .show-menu-btn:hover, .hide-menu-btn:hover{
     color: #6ca03c;
 }
 
@@ -58,24 +58,24 @@ body{
     z-index: -1111;
 }
 
-.homepage .links{
+.main-nav .links{
     width: 50%;
     display: flex;
     align-items: center;
 }
 
-.homepage .links ul{
+.main-nav .links ul{
     display: flex;
     justify-content: space-around;
     margin-right: 2rem;
     width: 100%;
 }
 
-.homepage .links ul li{
+.main-nav .links ul li{
     list-style: none;
 }
 
-.homepage .links ul li a{
+.main-nav .links ul li a{
     text-decoration: none;
     color: #f1fffa;
     font-size: 1.3rem;
@@ -110,6 +110,8 @@ body{
 .homepage .header-content .cta-btn:hover{
     background-color: #6ca03c;
 }
+
+/* Todays Menu Section - Homepage */
 
 .homepage .todays-menu{
     min-height: 80vh;
@@ -275,7 +277,7 @@ body{
     background-color: #6ca03c00;
 }
 
-.homepage footer{
+.main-footer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -285,7 +287,76 @@ body{
     border-top: 2px solid #6ca03c;
 }
 
-/* Login and Sign Up Section */
+/* Our Menu Page */
+.our-menu{
+    background-image: url('../img/img4.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgba(12,24,48,0.4);
+    background-blend-mode: overlay;
+}
+
+.our-menu section{
+    display: flex;
+}
+
+.our-menu section .left{
+    width: 25%;
+    height: auto;
+    min-height: 100vh;
+}
+
+.our-menu section .right{
+    width: 75%;
+    min-height: 100vh;
+    background-color: #0a1b2c;
+    border-left: 3px solid #6ca03c;
+}
+
+.our-menu section .left h3{
+    font-size: 2rem;
+    color: #f1fffa;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.our-menu section .left hr{
+    width: 3rem;
+}
+
+.our-menu section .left ul{
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
+    color: #f1fffa;
+    font-size: 1.5rem;
+}
+
+.our-menu section .left ul li{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.our-menu section .left ul li:hover{
+    background-color: #6ca03c;
+}
+
+.our-menu section .right .card{
+    background-color: #f1fffa;
+    width: 16rem;
+    border-radius: 10px 10px 5px 5px;
+    min-height: 50vh;
+    margin-bottom: 2rem;
+}
+
+.our-menu section .right .card-body .meal-price{
+    color: #0a1b2c;
+}
+
+/* Login and Sign Up Pages */
 .main{
     display: flex;
 }
@@ -424,12 +495,13 @@ body{
         display: block;
     }
 
-    .homepage .links ul{
+    .main-nav .links ul{
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
         position: fixed;
         width: 100%;
+        z-index: 1;
         height: 100vh;
         background-color: #0a1b2c;
         right: -100%;
