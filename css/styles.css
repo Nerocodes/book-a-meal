@@ -231,7 +231,7 @@ body{
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding-top: 4rem;
     align-items: center;
     border-right: 3px solid #6ca03c;
     background-color: #0a1b2c;
@@ -354,6 +354,82 @@ body{
 
 .our-menu section .right .card-body .meal-price{
     color: #0a1b2c;
+}
+
+/* Order Page */
+.order-page header{
+    background-image: url('../img/img4.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgba(12,24,48,0.4);
+    background-blend-mode: overlay;
+}
+
+.order-page .order-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 2rem;
+}
+
+.order-page .order-cards .card{
+    width: 30rem;
+    height: 15rem;
+    display: flex;
+    background-color: #f1fffa;
+    border: 2px solid #6ca03c;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.order-page .order-cards .card img{
+    width: 15rem;
+    height: 15rem;
+}
+
+.order-page .order-cards .card .right{
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.order-page .order-cards .card .right input{
+    border: 1px solid #6ca03c;
+    border-radius: 5px;
+    background-color: #6ca03c00;
+    width: 3rem;
+}
+
+.order-page .order-cards .card .right .meal-name{
+    margin-top: 0px;
+}
+
+.order-page > div{
+    display: flex;
+    justify-content: center;
+}
+
+.order-page .checkout-div{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.order-page .checkout-btn{
+    text-decoration: none;
+    color: #f1fffa;
+    background-color: #6ca03c;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+}
+
+.order-page .checkout-btn:hover{
+    text-decoration: none;
+    color: #f1fffa;
+    background-color: #628f38;
+    padding: 1rem 3rem;
+    border-radius: 5px;
 }
 
 /* Login and Sign Up Pages */
@@ -521,6 +597,13 @@ body{
         right: 0;
     }
 
+    .homepage .header-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4rem;
+    }
+
     .homepage .header-content .cta-btn{
         padding: 1rem 2rem;
     }
@@ -548,6 +631,17 @@ body{
 
     .about-us .right .about-text{
         width: 70%;
+    }
+
+    .order-page .order-cards .card{
+        width: 15rem;
+        height: 30rem;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #f1fffa;
+        border: 2px solid #6ca03c;
+        border-radius: 5px;
+        margin-bottom: 2rem;
     }
 
     .main{
