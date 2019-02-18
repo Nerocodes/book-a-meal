@@ -28,7 +28,7 @@ const MealService = {
     },
 
     getAMeal(id){
-        const meal = dummyData.meals.find(meal => meal.id = id);
+        const meal = dummyData.meals.find(meal => meal.id == id);
         return meal || {};
     }
 
