@@ -10,6 +10,7 @@ const MealService = {
             newMeal.name = meal.name;
             newMeal.description = meal.description;
             newMeal.price = meal.price;
+            return newMeal;
         });
 
         return validMeals;
