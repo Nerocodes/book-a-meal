@@ -6,6 +6,14 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
 .light-color{
     color: #f1fffa;
 }
@@ -432,6 +440,64 @@ body{
     border-radius: 5px;
 }
 
+/* Checkout Page */
+.checkout-cards{
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.checkout-cards .delivery-information{
+    background-color: #f1fffa;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #6ca03c;
+    margin-right: 4rem;
+}
+
+.checkout-cards .delivery-information h3{
+    margin: 0px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.checkout-cards .delivery-information hr{
+    margin-bottom: 1rem;
+}
+
+.checkout-cards .delivery-information input{
+    display: block;
+    border: 1px solid #6ca03c;
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: #f1fffa;
+}
+
+.checkout-cards .order-summary{
+    background-color: #f1fffa;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #6ca03c;
+}
+
+.checkout-cards .order-summary h3{
+    margin: 0px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.checkout-cards .order-summary hr{
+    margin-bottom: 1rem;
+}
+
+.checkout-cards .order-summary .checkout-table{
+    padding: 1rem;
+}
+
+.checkout-cards .order-summary .checkout-table th{
+    padding: 1rem;
+}
 /* Login and Sign Up Pages */
 .main{
     display: flex;
