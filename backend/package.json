@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Nerocodes/book-a-meal#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
+    "eslint-plugin-import": "^2.16.0",
     "express": "^4.16.4"
   },
   "devDependencies": {
