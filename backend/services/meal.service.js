@@ -30,6 +30,14 @@ const MealService = {
     getAMeal(id){
         const meal = dummyData.meals.find(meal => meal.id == id);
         return meal || {};
+    },
+
+    updateMeal(meal, id){
+        const updatedMeal = dummyData.meals.find(updatedMeal => updatedMeal.id == id);
+        updatedMeal.name = meal.name;
+        updatedMeal.description = meal.description;
+        updatedMeal.price = meal.price;
+        return updatedMeal;
     }
 
 };
