@@ -38,6 +38,22 @@ const MealService = {
         updatedMeal.description = meal.description;
         updatedMeal.price = meal.price;
         return updatedMeal;
+    },
+
+    deleteMeal(id){
+        const mealIndex = dummyData.meals.findIndex(meal => meal.id == id);
+        dummyData.meals.splice(mealIndex, 1);
+        const validMeals = dummyData.meals.map((meal) => {
+            const newMeal = new Meal();
+            newMeal.id = meal.id;
+            newMeal.name = meal.name;
+            newMeal.description = meal.description;
+            newMeal.price = meal.price;
+            return newMeal;
+        });
+
+        return validMeals;
+        
     }
 
 };
