@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meal-Paddy</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="order-page">
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html"><h3><span class="light-color"> Meal-</span>Paddy</h3></a>
+            </div>
+            <div class="links">
+                <input type="checkbox" id="hamburger">
+                <label for="hamburger" class="show-menu-btn">
+                    <i class="fas fa-hamburger"></i>
+                </label>
+                <ul>
+                    <li><a href="ourmenu.html">Our Menu</a></li>
+                    <li><a href="index.html#about-us">About Us</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="order.html">Cart <i class="fas fa-shopping-cart"></i></a></li>
+                    <div class="toggle">
+                        <label for="hamburger" class="hide-menu-btn">
+                            <i class="fas fa-times"></i>
+                        </label>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="checkout-cards">
+            <div class="delivery-information">
+                <h3>Delivery Information</h3>
+                <hr class="title-hr">
+                <form action="">
+                    <div class="input-group">
+                        <label for="address">Address</label>
+                        <input type="text" name="address" id="address">
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" name="phone" id="phone">
+                    </div>
+                    <div class="input-group">
+                        <label for="date">Date</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+                    <div class="input-group">
+                        <label for="time">Time</label>
+                        <input type="time" name="time" id="time">
+                    </div>
+                </form>
+            </div>
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <hr class="title-hr">
+                <table class="checkout-table">
+                    <thead>
+                        <th>Meal</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                    </thead>
+                    <tr>
+                        <td class="text-center">Burger</td>
+                        <td class="text-center">2</td>
+                        <td class="text-center">₦6000</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">Pizza</td>
+                        <td class="text-center">1</td>
+                        <td class="text-center">₦5000</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">Cake</td>
+                        <td class="text-center">2</td>
+                        <td class="text-center">₦4000</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th class="text-center">SUBTOTAL</th>
+                        <th>₦15000</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>V.A.T (5%)</th>
+                        <th>₦15750</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>TOTAL</th>
+                        <th>₦15750</th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <div class="checkout-div">
+            <a href="confirmation.html" class="checkout-btn">Order</a>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="copyright">
+            &copy; NeroCodes 2019
+        </div>
+    </footer>
+</body>
+</html>
