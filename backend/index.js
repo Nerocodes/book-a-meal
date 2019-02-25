@@ -18,8 +18,10 @@ app.get('/', (req, res) => {
 // handle
 app.use('/api/v1/meals', mealRoutes);
 app.use('/api/v1/menu', menuRoutes);
-app.use('/api/v1/order', orderRoutes);
+app.use('/api/v1/orders', orderRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on PORT ${PORT}`);
 });
+
+export default app;
