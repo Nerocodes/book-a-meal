@@ -123,6 +123,48 @@ export default {
             day: 'Sunday'
         }
 
+    ],
+
+    orders: [
+        {
+            id: 1,
+            order: [
+                {
+                    meal: {
+                        id: 1,
+                        name: 'Burger',
+                        description: 'Chicken burger',
+                        price: 4000,
+                    },
+                    portion: 2
+                }
+            ],
+            total: 4000
+        },
+        {
+            id: 2,
+            order: [
+                {
+                    meal: {
+                        id: 1,
+                        name: 'Burger',
+                        description: 'Chicken burger',
+                        price: 4000,
+                    },
+                    portion: 2
+                },
+                {
+                    meal: {
+                        id: 3,
+                        name: 'Cake',
+                        description: 'Chocolate cake',
+                        price: 2000,
+                    },
+                    portion: 1
+                }
+            ],
+            total: 6000
+        }
     ]
 
 }
