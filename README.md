@@ -7,9 +7,9 @@
 # Website URL
 https://nerocodes.github.io/book-a-meal/
 
-#Node App URL
+# Node App URL
 https://meal-paddy.herokuapp.com/
 
-#Author
+# Author
 Oghenero Paul-Ejukorlem
 NeroCodes
