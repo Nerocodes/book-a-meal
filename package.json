@@ -10,7 +10,7 @@
     "start": "node ./build/index.js",
     "dev-start": "nodemon --exec babel-node ./backend/index.js",
     "test": "nyc mocha --require @babel/register ./backend/test --exit || true",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "repository": {
     "type": "git",
