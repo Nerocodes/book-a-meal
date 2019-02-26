@@ -8,6 +8,7 @@
     "build-server": "babel -d ./build ./backend -s",
     "build": "npm run clean && npm run build-server",
     "start": "node ./build/index.js",
+    "dev-start": "nodemon --exec babel-node ./backend/index.js",
     "test": "mocha --require @babel/register ./backend/test --exit || true"
   },
   "repository": {
