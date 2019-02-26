@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/Nerocodes/book-a-meal#readme",
   "dependencies": {
-    "@babel/register": "^7.0.0",
     "babel-cli": "^6.26.0",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
@@ -35,7 +34,9 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
     "eslint": "^5.14.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "nodemon": "^1.18.10"
