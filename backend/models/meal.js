@@ -5,12 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     price: DataTypes.FLOAT
   }, {});
-  Meal.associate = (models) => {
-    // associations can be defined here
-    Meal.belongsTo(models.Menu, {
-      foreignKey: 'menuId',
-      onDelete: 'CASCADE',
-    });
-  };
+  // Meal.associate = (models) => {
+  //   // associations can be defined here
+  //   Meal.belongsTo(models.Menu, {
+  //     foreignKey: 'menuId',
+  //     onDelete: 'CASCADE',
+  //   });
+  // };
   return Meal;
 };

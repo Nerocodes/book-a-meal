@@ -1,49 +1,59 @@
-import OrderService from '../services/order.service';
+import models from '../models/index';
 
 const OrderController = {
 
     fetchAllOrders(req, res){
-        const allOrders = OrderService.fetchAllOrders();
-        return res.json({
-            status: 'success',
-            data: allOrders
-        }).status(200);
+        models.Order.findAll().then(orders => {
+            return res.json({
+                status: 'success',
+                data: orders
+            }).status(200);
+        })
+        .catch(err => console.log(err));
     },
 
     addAnOrder(req, res){
         /*
             Expect json of format
             {
-                order: [],
                 total: number
             }
          */
 
          const newOrder = req.body;
-         const createdOrder = OrderService.addOrder(newOrder);
-         return res.json({
-            status: 'success',
-            data: createdOrder
-         }).status(201);
+         models.Order.create({
+            total: newOrder.total
+        }).then(orders => {
+           return res.json({
+               status: 'success',
+               data: orders
+            }).status(201);
+        }).catch(err => console.log(err));
     },
 
     getSingleOrder(req, res){
         const id = req.params.id;
-        const foundOrder = OrderService.getAnOrder(id);
-        return res.json({
-            status: 'success',
-            data: foundOrder
-         }).status(200);
+        models.Order.findById(id).then(orders => {
+            return res.json({
+                status: 'success',
+                data: orders
+             }).status(200);
+        }).catch(err => console.log(err));
     },
 
     updateAnOrder(req, res){
         const id = req.params.id;
         const newOrder = req.body;
-        const updatedOrder = OrderService.updateOrder(newOrder, id);
-        return res.json({
-            status: 'success',
-            data: updatedOrder
-         }).status(201);
+        models.Order.findById(id).then(orders => {
+            orders.update({
+                total: newOrder.total
+            }).then(order => {
+                return res.json({
+                    status: 'success',
+                    data: order
+                 }).status(201);
+            });
+        }).catch(err => console.log(err));
     }
 
 }

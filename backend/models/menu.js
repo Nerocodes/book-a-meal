@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Menu.associate = function(models) {
     // associations can be defined here
-    Menu.hasMany(models.Meal, {
-      foreignKey: 'menuId',
-      as: 'meals',
-    });
+    // Menu.hasMany(models.Meal, {
+    //   foreignKey: 'menuId',
+    //   as: 'meals',
+    // });
   };
   return Menu;
 };

@@ -1,13 +1,15 @@
-import MealService from '../services/meal.service';
+import models from '../models/index';
 
 const MealController = {
 
     fetchAllMeals(req, res){
-        const allMeals = MealService.fetchAllMeals();
-        return res.json({
-            status: 'success',
-            data: allMeals
-        }).status(200);
+        models.Meal.findAll().then(meals => {
+            return res.json({
+                status: 'success',
+                data: meals
+            }).status(200);
+        })
+        .catch(err => console.log(err));
     },
 
     addAMeal(req, res){
@@ -21,39 +23,56 @@ const MealController = {
          */
 
          const newMeal = req.body;
-         const createdMeal = MealService.addMeal(newMeal);
-         return res.json({
-            status: 'success',
-            data: createdMeal
-         }).status(201);
+         models.Meal.create({
+            name: newMeal.name,
+            description: newMeal.description,
+            price: newMeal.price
+
+        }).then(meals => {
+           return res.json({
+               status: 'success',
+               data: meals
+            }).status(201);
+        }).catch(err => console.log(err));
     },
 
     getSingleMeal(req, res){
         const id = req.params.id;
-        const foundMeal = MealService.getAMeal(id);
-        return res.json({
-            status: 'success',
-            data: foundMeal
-         }).status(200);
+        models.Meal.findById(id).then(meals => {
+            return res.json({
+                status: 'success',
+                data: meals
+             }).status(200);
+        }).catch(err => console.log(err));
     },
 
     updateAMeal(req, res){
         const id = req.params.id;
         const newMeal = req.body;
-        const updatedMeal = MealService.updateMeal(newMeal, id);
-        return res.json({
-            status: 'success',
-            data: updatedMeal
-         }).status(201);
+        models.Meal.findById(id).then(meals => {
+            meals.update({
+                name: newMeal.name,
+                description: newMeal.description,
+                price: newMeal.price
+            }).then(meal => {
+                return res.json({
+                    status: 'success',
+                    data: meal
+                 }).status(201);
+            });
+        }).catch(err => console.log(err));
     },
 
     deleteAMeal(req, res){
         const id = req.params.id;
-        const deleteMeal = MealService.deleteMeal(id);
-        return res.json({
-            status: 'success',
-            data: deleteMeal
-         }).status(201);
+        models.Meal.findById(id).then(users => {
+            users.destroy().then(() => {
+                return res.json({
+                    status: 'success',
+                    data: 'Deleted Successfully'
+                 }).status(201);
+            });
+        }).catch(err => console.log(err));
     }
 
 }
