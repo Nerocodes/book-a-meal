@@ -5,56 +5,69 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _order = _interopRequireDefault(require("../services/order.service"));
+var _index = _interopRequireDefault(require("../models/index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var OrderController = {
   fetchAllOrders: function fetchAllOrders(req, res) {
-    var allOrders = _order.default.fetchAllOrders();
-
-    return res.json({
-      status: 'success',
-      data: allOrders
-    }).status(200);
+    _index.default.Order.findAll().then(function (orders) {
+      return res.json({
+        status: 'success',
+        data: orders
+      }).status(200);
+    }).catch(function (err) {
+      return console.log(err);
+    });
   },
   addAnOrder: function addAnOrder(req, res) {
     /*
         Expect json of format
         {
-            order: [],
             total: number
         }
      */
     var newOrder = req.body;
 
-    var createdOrder = _order.default.addOrder(newOrder);
-
-    return res.json({
-      status: 'success',
-      data: createdOrder
-    }).status(201);
+    _index.default.Order.create({
+      total: newOrder.total
+    }).then(function (orders) {
+      return res.json({
+        status: 'success',
+        data: orders
+      }).status(201);
+    }).catch(function (err) {
+      return console.log(err);
+    });
   },
   getSingleOrder: function getSingleOrder(req, res) {
     var id = req.params.id;
 
-    var foundOrder = _order.default.getAnOrder(id);
-
-    return res.json({
-      status: 'success',
-      data: foundOrder
-    }).status(200);
+    _index.default.Order.findById(id).then(function (orders) {
+      return res.json({
+        status: 'success',
+        data: orders
+      }).status(200);
+    }).catch(function (err) {
+      return console.log(err);
+    });
   },
   updateAnOrder: function updateAnOrder(req, res) {
     var id = req.params.id;
     var newOrder = req.body;
 
-    var updatedOrder = _order.default.updateOrder(newOrder, id);
-
-    return res.json({
-      status: 'success',
-      data: updatedOrder
-    }).status(201);
+    _index.default.Order.findById(id).then(function (orders) {
+      orders.update({
+        total: newOrder.total
+      }).then(function (order) {
+        return res.json({
+          status: 'success',
+          data: order
+        }).status(201);
+      });
+    }).catch(function (err) {
+      return console.log(err);
+    });
   }
 };
 var _default = OrderController;

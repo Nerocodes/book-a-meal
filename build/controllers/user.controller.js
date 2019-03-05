@@ -9,76 +9,79 @@ var _index = _interopRequireDefault(require("../models/index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var MealController = {
-  fetchAllMeals: function fetchAllMeals(req, res) {
-    _index.default.Meal.findAll().then(function (meals) {
+var UserController = {
+  fetchAllUsers: function fetchAllUsers(req, res) {
+    _index.default.User.findAll().then(function (users) {
       return res.json({
         status: 'success',
-        data: meals
+        data: users
       }).status(200);
     }).catch(function (err) {
       return console.log(err);
     });
   },
-  addAMeal: function addAMeal(req, res) {
+  addAUser: function addAUser(req, res) {
     /*
         Expect json of format
         {
-            name: "random",
-            description: "random",
-            price: 300
+            first_name: DataTypes.STRING,
+            last_name: DataTypes.STRING,
+            email: DataTypes.STRING,
+            password: DataTypes.STRING
         }
      */
-    var newMeal = req.body;
+    var newUser = req.body;
 
-    _index.default.Meal.create({
-      name: newMeal.name,
-      description: newMeal.description,
-      price: newMeal.price
-    }).then(function (meals) {
+    _index.default.User.create({
+      first_name: newUser.first_name,
+      last_name: newUser.last_name,
+      email: newUser.email,
+      password: newUser.password
+    }).then(function (users) {
       return res.json({
         status: 'success',
-        data: meals
+        data: users
       }).status(201);
     }).catch(function (err) {
       return console.log(err);
     });
   },
-  getSingleMeal: function getSingleMeal(req, res) {
+  getSingleUser: function getSingleUser(req, res) {
     var id = req.params.id;
 
-    _index.default.Meal.findById(id).then(function (meals) {
+    _index.default.User.findById(id).then(function (users) {
       return res.json({
         status: 'success',
-        data: meals
+        data: users
       }).status(200);
     }).catch(function (err) {
       return console.log(err);
     });
   },
-  updateAMeal: function updateAMeal(req, res) {
+  updateAUser: function updateAUser(req, res) {
     var id = req.params.id;
-    var newMeal = req.body;
+    var newUser = req.body;
 
-    _index.default.Meal.findById(id).then(function (meals) {
-      meals.update({
-        name: newMeal.name,
-        description: newMeal.description,
-        price: newMeal.price
-      }).then(function (meal) {
+    _index.default.User.findById(id).then(function (users) {
+      users.update({
+        first_name: newUser.first_name,
+        last_name: newUser.last_name,
+        email: newUser.email,
+        password: newUser.password
+      }).then(function (user) {
         return res.json({
           status: 'success',
-          data: meal
+          data: user
         }).status(201);
       });
     }).catch(function (err) {
       return console.log(err);
     });
   },
-  deleteAMeal: function deleteAMeal(req, res) {
+  deleteAUser: function deleteAUser(req, res) {
     var id = req.params.id;
 
-    _index.default.Meal.findById(id).then(function (users) {
+    _index.default.User.findById(id).then(function (users) {
       users.destroy().then(function () {
         return res.json({
           status: 'success',
@@ -90,6 +93,6 @@ var MealController = {
     });
   }
 };
-var _default = MealController;
+var _default = UserController;
 exports.default = _default;
-//# sourceMappingURL=meal.controller.js.map
+//# sourceMappingURL=user.controller.js.map
