@@ -1,38 +1,15 @@
-import MenuService from '../services/menu.service';
+import models from '../models/index';
 
 const MenuController = {
 
     fetchAllMenus(req, res){
-        const todate = new Date();
-        let today = todate.getDay();
-        switch(today) {
-            case 0:
-                today = 'Sunday';
-                break;
-            case 1:
-                today = 'Monday';
-                break;
-            case 2:
-                today = 'Tuesday';
-                break;
-            case 3:
-                today = 'Wednesday';
-                break;
-            case 4:
-                today = 'Thursday';
-                break;
-            case 5:
-                today = 'Friday';
-                break;
-            case 6:
-                today = 'Saturday';
-                break;
-        }
-        const allMenus = MenuService.fetchMenu(today);
-        return res.json({
-            status: 'success',
-            data: allMenus
-        }).status(200);
+        models.Menu.findAll().then(menus => {
+            return res.json({
+                status: 'success',
+                data: menus
+            }).status(200);
+        })
+        .catch(err => console.log(err));
     },
 
     addAMenu(req, res){
@@ -40,17 +17,21 @@ const MenuController = {
             Expect json of format
             {
                 name: "random",
-                description: "random",
-                price: 300
+                day" "day"
             }
          */
 
          const newMenu = req.body;
-         const createdMenu = MenuService.addMenu(newMenu);
-         return res.json({
-            status: 'success',
-            data: createdMenu
-         }).status(201);
+         models.Menu.create({
+            name: newMenu.name,
+            day: newMenu.day
+
+        }).then(menus => {
+           return res.json({
+               status: 'success',
+               data: menus
+            }).status(201);
+        }).catch(err => console.log(err));
     },
 
 }
