@@ -8,7 +8,7 @@ const env = process.env.NODE_ENV || 'development';
 if(process.env.DATABASE_URL){
   env = 'production';
 }
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config.js')[env];
 const db = {};
 
 let sequelize;

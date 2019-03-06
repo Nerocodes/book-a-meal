@@ -15,7 +15,7 @@ if (process.env.DATABASE_URL) {
   env = (_readOnlyError("env"), 'production');
 }
 
-var config = require(__dirname + '/../config/config.json')[env];
+var config = require(__dirname + '/../config.js')[env];
 
 var db = {};
 var sequelize;
