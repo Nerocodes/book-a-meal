@@ -16,7 +16,7 @@ module.exports = {
     first_name: 'Oghenero',
     last_name: 'Paul-Ejukorlem',
     email: 'neropaulej@gmail.com',
-    password: 'password',
+    password: '$2y$12$vhs2UQ2suQi15UZIy4AOx.rixKueK6dzt5QUhfUlHpe47nOjrFvzW',
     createdAt: new Date(),
     updatedAt: new Date(),
   }], {});
