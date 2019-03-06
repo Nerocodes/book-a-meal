@@ -24,7 +24,6 @@ module.exports = {
     "port": "5432",
     "username": "cevexlskpfcljo",
     "password": "7fa69768a50f2c755393b681ba8841a10178b1d03c80352c6ac6af409f71533f", 
-    "database": "postgres",
     "dialect": "postgres",
     "dialectOption": {
       "ssl": true,
