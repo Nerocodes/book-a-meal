@@ -1,7 +1,5 @@
 'use strict';
 
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
 var fs = require('fs');
 
 var path = require('path');
@@ -11,13 +9,10 @@ var Sequelize = require('sequelize');
 var basename = path.basename(__filename);
 var env = process.env.NODE_ENV || 'development';
 
-if (process.env.DATABASE_URL) {
-  env = (_readOnlyError("env"), 'production');
-}
-
 var config = require(__dirname + '/../config.js')[env];
 
 var db = {};
+console.log(env);
 var sequelize;
 
 if (config.use_env_variable) {
