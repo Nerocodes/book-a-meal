@@ -22,7 +22,7 @@ module.exports = {
     "host": "ec2-107-21-99-237.compute-1.amazonaws.com", 
     "protocol": "postgres",
     "port": "5432",
-    "user": "cevexlskpfcljo",
+    "username": "cevexlskpfcljo",
     "password": "7fa69768a50f2c755393b681ba8841a10178b1d03c80352c6ac6af409f71533f", 
     "dialect": "postgres",
     "sslmode": "require"
