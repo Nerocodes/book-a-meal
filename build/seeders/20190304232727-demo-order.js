@@ -5,7 +5,7 @@ module.exports = {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
-       Example:
+        Example:
       return queryInterface.bulkInsert('People', [{
         name: 'John Doe',
         isBetaMember: false
@@ -25,7 +25,7 @@ module.exports = {
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
-       Example:
+        Example:
       return queryInterface.bulkDelete('People', null, {});
     */
     return queryInterface.bulkDelete('Orders', null, {});
