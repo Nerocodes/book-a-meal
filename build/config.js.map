@@ -1,0 +1,1 @@
+{"version":3,"sources":["../backend/config.js"],"names":["module","exports"],"mappings":";;AAAAA,MAAM,CAACC,OAAP,GAAiB;AACb,YAAU;AADG,CAAjB","sourcesContent":["module.exports = {\r\n    'secret': 'supersecret'\r\n  };"],"file":"config.js"}

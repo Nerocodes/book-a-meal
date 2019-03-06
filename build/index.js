@@ -15,7 +15,7 @@ var _menu = _interopRequireDefault(require("./routes/menu.route"));
 
 var _order = _interopRequireDefault(require("./routes/order.route"));
 
-var _user = _interopRequireDefault(require("./routes/user.route"));
+var _auth = _interopRequireDefault(require("./routes/auth.route"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
 app.use('/api/v1/meals', _meal.default);
 app.use('/api/v1/menu', _menu.default);
 app.use('/api/v1/orders', _order.default);
-app.use('/api/v1/users', _user.default);
+app.use('/api/v1/auth', _auth.default);
 app.listen(PORT, function () {
   console.log("Server is running on PORT ".concat(PORT));
 });
