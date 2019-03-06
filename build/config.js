@@ -19,17 +19,14 @@ module.exports = {
     "dialect": "postgres"
   },
   "production": {
-    "dbname": "d5ql52guj010a1",
+    "database": "d5ql52guj010a1",
     "host": "ec2-107-21-99-237.compute-1.amazonaws.com",
     "protocol": "postgres",
     "port": "5432",
-    "username": "cevexlskpfcljo",
+    "user": "cevexlskpfcljo",
     "password": "7fa69768a50f2c755393b681ba8841a10178b1d03c80352c6ac6af409f71533f",
     "dialect": "postgres",
-    "dialectOption": {
-      "ssl": true,
-      "native": true
-    }
+    "sslmode": "require"
   }
 };
 //# sourceMappingURL=config.js.map
