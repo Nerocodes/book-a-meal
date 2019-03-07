@@ -1,4 +1,4 @@
-# Meal-Paddy
+# book-a-meal
 
 [![Build Status](https://travis-ci.org/Nerocodes/book-a-meal.svg?branch=master)](https://travis-ci.org/Nerocodes/book-a-meal)
 
