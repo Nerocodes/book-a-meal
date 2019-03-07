@@ -7,5 +7,9 @@ directories:
 before_install: cd ./
 install:
 - npm install
+before_script:
+- psql -c 'create database testdb;' -U postgres
+- sequelize db:migrate
+- sequelize db:seed:all
 script:
 - npm run coverage
