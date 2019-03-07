@@ -15,11 +15,22 @@ var should = _chai.default.should(); // Test /Get route
 
 describe('/GET order', function () {
   it('should get orders', function (done) {
-    _chai.default.request(_index.default).get('/api/v1/orders').end(function (err, res) {
+    var user = {
+      email: 'nero@nerocodes.com',
+      password: 'pass'
+    };
+
+    _chai.default.request(_index.default).post('/api/v1/auth/login').send(user).end(function (err, res) {
       res.should.have.status(200);
-      res.body.should.be.a('object');
       console.log(res.body);
-      done();
+      var tokens = res.body.token;
+
+      _chai.default.request(_index.default).get('/api/v1/orders').set('x-access-token', tokens).end(function (err, res) {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        console.log(res.body);
+        done();
+      });
     });
   });
 }); // Test /POST route
@@ -46,23 +57,44 @@ describe('/POST order', function () {
       }],
       total: 6000
     }];
+    var user = {
+      email: 'nero@nerocodes.com',
+      password: 'pass'
+    };
 
-    _chai.default.request(_index.default).post('/api/v1/orders').send(order).end(function (err, res) {
+    _chai.default.request(_index.default).post('/api/v1/auth/login').send(user).end(function (err, res) {
       res.should.have.status(200);
-      res.body.should.be.a('object');
       console.log(res.body);
-      done();
+      var tokens = res.body.token;
+
+      _chai.default.request(_index.default).post('/api/v1/orders').set('x-access-token', tokens).send(order).end(function (err, res) {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        console.log(res.body);
+        done();
+      });
     });
   });
 }); //Test /Get:id route
 
 describe('/GET/:id order', function () {
   it('should get order by id', function (done) {
-    _chai.default.request(_index.default).get("/api/v1/orders/".concat(1)).end(function (err, res) {
+    var user = {
+      email: 'nero@nerocodes.com',
+      password: 'pass'
+    };
+
+    _chai.default.request(_index.default).post('/api/v1/auth/login').send(user).end(function (err, res) {
       res.should.have.status(200);
-      res.body.should.be.a('object');
-      console.log('res.body');
-      done();
+      console.log(res.body);
+      var tokens = res.body.token;
+
+      _chai.default.request(_index.default).get("/api/v1/orders/".concat(1)).set('x-access-token', tokens).end(function (err, res) {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        console.log('res.body');
+        done();
+      });
     });
   });
 }); //Update Order test
@@ -89,12 +121,22 @@ describe('/PUT/:id order', function () {
       }],
       total: 6000
     };
+    var user = {
+      email: 'nero@nerocodes.com',
+      password: 'pass'
+    };
 
-    _chai.default.request(_index.default).put("/api/v1/orders/".concat(1)).send(order).end(function (err, res) {
+    _chai.default.request(_index.default).post('/api/v1/auth/login').send(user).end(function (err, res) {
       res.should.have.status(200);
-      res.body.should.be.a('object');
-      console.log('res.body');
-      done();
+      console.log(res.body);
+      var tokens = res.body.token;
+
+      _chai.default.request(_index.default).put("/api/v1/orders/".concat(1)).set('x-access-token', tokens).send(order).end(function (err, res) {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        console.log('res.body');
+        done();
+      });
     });
   });
 }); //Delete Order

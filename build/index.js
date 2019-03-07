@@ -9,6 +9,8 @@ var _express = _interopRequireDefault(require("express"));
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
 
+var _dotenv = _interopRequireDefault(require("dotenv"));
+
 var _meal = _interopRequireDefault(require("./routes/meal.route"));
 
 var _menu = _interopRequireDefault(require("./routes/menu.route"));
@@ -19,7 +21,9 @@ var _auth = _interopRequireDefault(require("./routes/auth.route"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// routes
+_dotenv.default.config(); // routes
+
+
 var app = (0, _express.default)();
 var PORT = process.env.PORT || 9000;
 app.use(_bodyParser.default.json());

@@ -22,11 +22,11 @@ describe('/GET meal', () => {
 // Test /POST route
 describe('/POST meal', () => {
     it('should post meal', (done) => {
-        const meal = [{
+        const meal = {
             name: 'Burger',
             description: 'Chicken burger',
             price: 4000,
-        }];
+        };
         chai.request(app)
         .post('/api/v1/meals')
         .send(meal)
@@ -43,7 +43,7 @@ describe('/POST meal', () => {
 describe('/GET/:id meal', () => {
     it('should get meal by id', (done) => {
         chai.request(app)
-        .get(`/api/v1/meals/${1}`)
+        .get(`/api/v1/meals/${2}`)
         .end((err,res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
@@ -62,7 +62,7 @@ describe('/PUT/:id meal', () => {
             price: 4000,
         };
         chai.request(app)
-        .put(`/api/v1/meals/${1}`)
+        .put(`/api/v1/meals/${2}`)
         .send(meal)
         .end((err, res) => {
             res.should.have.status(200);
@@ -78,7 +78,7 @@ describe('/PUT/:id meal', () => {
 describe('/DELETE/:id meal', () => {
     it('should delete meal by id', (done) => {
         chai.request(app)
-        .delete(`/api/v1/meals/${1}`)
+        .delete(`/api/v1/meals/${3}`)
         .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');

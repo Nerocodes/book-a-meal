@@ -16,16 +16,15 @@ var _config = _interopRequireDefault(require("../../config"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AuthController = {
-  fetchAllUsers: function fetchAllUsers(req, res) {
-    _index.default.User.findAll().then(function (users) {
-      return res.json({
-        status: 'success',
-        data: users
-      }).status(200);
-    }).catch(function (err) {
-      return console.log(err);
-    });
-  },
+  // fetchAllUsers(req, res){
+  //     models.User.findAll().then(users => {
+  //         return res.json({
+  //             status: 'success',
+  //             data: users
+  //         }).status(200);
+  //     })
+  //     .catch(err => console.log(err));
+  // },
   register: function register(req, res) {
     /*
         Expect json of format
@@ -112,40 +111,6 @@ var AuthController = {
     res.status(200).send({
       auth: false,
       token: null
-    });
-  },
-  updateAUser: function updateAUser(req, res) {
-    var id = req.params.id;
-    var newUser = req.body;
-
-    _index.default.User.findById(id).then(function (users) {
-      users.update({
-        first_name: newUser.first_name,
-        last_name: newUser.last_name,
-        email: newUser.email,
-        password: newUser.password
-      }).then(function (user) {
-        return res.json({
-          status: 'success',
-          data: user
-        }).status(201);
-      });
-    }).catch(function (err) {
-      return console.log(err);
-    });
-  },
-  deleteAUser: function deleteAUser(req, res) {
-    var id = req.params.id;
-
-    _index.default.User.findById(id).then(function (users) {
-      users.destroy().then(function () {
-        return res.json({
-          status: 'success',
-          data: 'Deleted Successfully'
-        }).status(201);
-      });
-    }).catch(function (err) {
-      return console.log(err);
     });
   }
 };

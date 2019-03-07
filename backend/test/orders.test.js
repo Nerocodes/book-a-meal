@@ -8,13 +8,26 @@ let should = chai.should();
 // Test /Get route
 describe('/GET order', () => {
     it('should get orders', (done) => {
+        const user = {
+            email: 'nero@nerocodes.com',
+            password: 'pass'
+        };
         chai.request(app)
-        .get('/api/v1/orders')
+        .post('/api/v1/auth/login')
+        .send(user)
         .end((err, res) => {
             res.should.have.status(200);
-            res.body.should.be.a('object');
             console.log(res.body);
-            done();
+            const tokens = res.body.token;
+            chai.request(app)
+            .get('/api/v1/orders')
+            .set('x-access-token', tokens)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                console.log(res.body);
+                done();
+            });
         });
    });
 });
@@ -45,14 +58,27 @@ describe('/POST order', () => {
             ],
             total: 6000
         }];
+        const user = {
+            email: 'nero@nerocodes.com',
+            password: 'pass'
+        };
         chai.request(app)
-        .post('/api/v1/orders')
-        .send(order)
+        .post('/api/v1/auth/login')
+        .send(user)
         .end((err, res) => {
             res.should.have.status(200);
-            res.body.should.be.a('object');
             console.log(res.body);
-            done();
+            const tokens = res.body.token;
+            chai.request(app)
+            .post('/api/v1/orders')
+            .set('x-access-token', tokens)
+            .send(order)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                console.log(res.body);
+                done();
+            });
         });
     });
 });
@@ -60,13 +86,26 @@ describe('/POST order', () => {
 //Test /Get:id route
 describe('/GET/:id order', () => {
     it('should get order by id', (done) => {
+        const user = {
+            email: 'nero@nerocodes.com',
+            password: 'pass'
+        };
         chai.request(app)
-        .get(`/api/v1/orders/${1}`)
-        .end((err,res) => {
+        .post('/api/v1/auth/login')
+        .send(user)
+        .end((err, res) => {
             res.should.have.status(200);
-            res.body.should.be.a('object');
-            console.log('res.body');
-            done();
+            console.log(res.body);
+            const tokens = res.body.token;
+            chai.request(app)
+            .get(`/api/v1/orders/${1}`)
+            .set('x-access-token', tokens)
+            .end((err,res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                console.log('res.body');
+                done();
+            });
         });
     });
 });
@@ -97,14 +136,27 @@ describe('/PUT/:id order', () => {
             ],
             total: 6000
         };
+        const user = {
+            email: 'nero@nerocodes.com',
+            password: 'pass'
+        };
         chai.request(app)
-        .put(`/api/v1/orders/${1}`)
-        .send(order)
+        .post('/api/v1/auth/login')
+        .send(user)
         .end((err, res) => {
             res.should.have.status(200);
-            res.body.should.be.a('object');
-            console.log('res.body');
-            done();
+            console.log(res.body);
+            const tokens = res.body.token;
+            chai.request(app)
+            .put(`/api/v1/orders/${1}`)
+            .set('x-access-token', tokens)
+            .send(order)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                console.log('res.body');
+                done();
+            });
         });
     });
 });
