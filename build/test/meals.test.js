@@ -26,11 +26,11 @@ describe('/GET meal', function () {
 
 describe('/POST meal', function () {
   it('should post meal', function (done) {
-    var meal = [{
+    var meal = {
       name: 'Burger',
       description: 'Chicken burger',
       price: 4000
-    }];
+    };
 
     _chai.default.request(_index.default).post('/api/v1/meals').send(meal).end(function (err, res) {
       res.should.have.status(200);
@@ -43,7 +43,7 @@ describe('/POST meal', function () {
 
 describe('/GET/:id meal', function () {
   it('should get meal by id', function (done) {
-    _chai.default.request(_index.default).get("/api/v1/meals/".concat(1)).end(function (err, res) {
+    _chai.default.request(_index.default).get("/api/v1/meals/".concat(2)).end(function (err, res) {
       res.should.have.status(200);
       res.body.should.be.a('object');
       console.log('res.body');
@@ -60,7 +60,7 @@ describe('/PUT/:id meal', function () {
       price: 4000
     };
 
-    _chai.default.request(_index.default).put("/api/v1/meals/".concat(1)).send(meal).end(function (err, res) {
+    _chai.default.request(_index.default).put("/api/v1/meals/".concat(2)).send(meal).end(function (err, res) {
       res.should.have.status(200);
       res.body.should.be.a('object');
       console.log('res.body');
@@ -71,7 +71,7 @@ describe('/PUT/:id meal', function () {
 
 describe('/DELETE/:id meal', function () {
   it('should delete meal by id', function (done) {
-    _chai.default.request(_index.default).delete("/api/v1/meals/".concat(1)).end(function (err, res) {
+    _chai.default.request(_index.default).delete("/api/v1/meals/".concat(3)).end(function (err, res) {
       res.should.have.status(200);
       res.body.should.be.a('object');
       console.log(res.body);

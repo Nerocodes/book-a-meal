@@ -1,5 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import config from 'dotenv';
+
+config.config()
 
 // routes
 import mealRoutes from './routes/meal.route';

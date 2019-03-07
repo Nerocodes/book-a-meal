@@ -9,7 +9,7 @@
     "build": "npm run clean && npm run build-server",
     "start": "node ./build/index.js",
     "dev-start": "nodemon --exec babel-node ./backend/index.js",
-    "test": "nyc mocha --require @babel/register ./backend/test --exit || true",
+    "test": "set TEST_ENV=test && nyc mocha --require @babel/register ./backend/test --exit || true",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "repository": {

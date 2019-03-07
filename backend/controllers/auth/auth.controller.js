@@ -5,15 +5,15 @@ import config from '../../config';
 
 const AuthController = {
 
-    fetchAllUsers(req, res){
-        models.User.findAll().then(users => {
-            return res.json({
-                status: 'success',
-                data: users
-            }).status(200);
-        })
-        .catch(err => console.log(err));
-    },
+    // fetchAllUsers(req, res){
+    //     models.User.findAll().then(users => {
+    //         return res.json({
+    //             status: 'success',
+    //             data: users
+    //         }).status(200);
+    //     })
+    //     .catch(err => console.log(err));
+    // },
 
     register(req, res){
         /*
@@ -38,7 +38,7 @@ const AuthController = {
          }).then(user => {
             const token = jwt.sign({ id: user.id}, config.secret, {
                 expiresIn: 86400
-            });
+            })
             return res.json({
                 status: 'success',
                 auth: 'true',
@@ -83,35 +83,35 @@ const AuthController = {
         res.status(200).send({ auth: false, token: null });
     },
 
-    updateAUser(req, res){
-        const id = req.params.id;
-        const newUser = req.body;
-        models.User.findById(id).then(users => {
-            users.update({
-                first_name: newUser.first_name,
-                last_name: newUser.last_name,
-                email: newUser.email,
-                password: newUser.password
-            }).then(user => {
-                return res.json({
-                    status: 'success',
-                    data: user
-                 }).status(201);
-            });
-        }).catch(err => console.log(err));
-    },
+    // updateAUser(req, res){
+    //     const id = req.params.id;
+    //     const newUser = req.body;
+    //     models.User.findById(id).then(users => {
+    //         users.update({
+    //             first_name: newUser.first_name,
+    //             last_name: newUser.last_name,
+    //             email: newUser.email,
+    //             password: newUser.password
+    //         }).then(user => {
+    //             return res.json({
+    //                 status: 'success',
+    //                 data: user
+    //              }).status(201);
+    //         });
+    //     }).catch(err => console.log(err));
+    // },
 
-    deleteAUser(req, res){
-        const id = req.params.id;
-        models.User.findById(id).then(users => {
-            users.destroy().then(() => {
-                return res.json({
-                    status: 'success',
-                    data: 'Deleted Successfully'
-                 }).status(201);
-            });
-        }).catch(err => console.log(err));
-    }
+    // deleteAUser(req, res){
+    //     const id = req.params.id;
+    //     models.User.findById(id).then(users => {
+    //         users.destroy().then(() => {
+    //             return res.json({
+    //                 status: 'success',
+    //                 data: 'Deleted Successfully'
+    //              }).status(201);
+    //         });
+    //     }).catch(err => console.log(err));
+    // }
 }
 
 export default AuthController;
