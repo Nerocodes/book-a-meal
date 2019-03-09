@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meal-Paddy Documentation</title>
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+<body>
+    <main>
+        <nav>
+            <a href="index.html"><h1><span class="light-color"> Meal-</span>Paddy<span class="light-color">-API</span></h1></a>
+            <h2 onclick="fetchUrl()">Documentation</h2>
+            <hr>
+            <ul>
+                <a href="#introduction" class="active"><li>Introduction</li></a>
+                <a href="#authentication"><li>Authentication</li></a>
+                <a href="#http"><li>Allowed HTTP Requests</li></a>
+                <a href="#errors"><li>Errors</li></a>
+                <a href="#reference"><li>Reference</li></a>
+            </ul>
+        </nav>
+        <section>
+            <div id="introduction">
+                <h2 class="title">Introduction</h2>
+                <p>
+                    Meal-Paddy-API is an api which allows users to book/order meals. 
+                    You can easily integrate it with your meal booking service and enjoy secure 
+                    meal booking. This documentation will help you get started. <br>
+                    URL: /api/v1/request
+                </p>
+            </div>
+            <div id="authentication">
+                    <h2 class="title">Authentication</h2>
+                    <p>
+                        Meal-Paddy-API is authenticated with JWT (Json Web Tokens).
+                        The token is sent through the x-access-token Header in the request for
+                        authenticated routes. The token is valid for 24hours after it has been generated.
+                        Only authenticated users have access to the order routes. <br>
+                        URL: /api/v1/auth/request
+                    </p>
+            </div>
+            <div id="http">
+                    <h2 class="title">Allowed HTTP Requests</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Endpoint</th>
+                                <th>Functionality</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GET /meals/</td>
+                                <td>Get all meal options</td>
+                            </tr>
+                            <tr>
+                                <td>POST /meals/</td>
+                                <td>Add a meal option</td>
+                            </tr>
+                            <tr>
+                                <td>PUT /meals/>mealid<</td>
+                                <td>Update the information of a meal option</td>
+                            </tr>
+                            <tr>
+                                <td>DELETE /meals/>mealid<</td>
+                                <td>Remove a meal option</td>
+                            </tr>
+                            <tr>
+                                <td>GET /menu/</td>
+                                <td>Get the menu for the day</td>
+                            </tr>
+                            <tr>
+                                <td>POST /menu/</td>
+                                <td>Setup the menu for the day</td>
+                            </tr>
+                            <tr>
+                                <td>GET /orders/</td>
+                                <td>Get all the orders</td>
+                            </tr>
+                            <tr>
+                                <td>POST /orders/</td>
+                                <td>Select the meal option from the menu</td>
+                            </tr>
+                            <tr>
+                                <td>PUT /orders/</td>
+                                <td>Modify an order</td>
+                            </tr>
+                            <tr>
+                                <td>POST /register/</td>
+                                <td>Register new user</td>
+                            </tr>
+                            <tr>
+                                <td>POST /login/</td>
+                                <td>Login in existing user</td>
+                            </tr>
+                            <tr>
+                                <td>GET /me/</td>
+                                <td>Get current user details</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            <div id="errors">
+                    <h2 class="title">Errors</h2>
+                    <p>The followiing are common practices that may lead to errors</p>
+                    <ul>
+                        <li>Sending a wrong request</li>
+                        <li>Trying to access authenticated routes without being authenticated</li>
+                        <li>Send the wrong data: please check <a href="#reference">Reference</a> to see
+                        data formats</li>
+                    </ul>
+                    <p>Ensure the above are done correctly.</p>
+            </div>
+            <div id="reference">
+                    <h2 class="title">Reference</h2>
+                    <dl>
+                        <dt><h3>Users</h3></dt>
+                        <dd><p>Represents user details.</p>
+                        <p>User attributes:
+                            <ul>
+                                <li>id (Integer): Primary key.</li>
+                                <li>first_name (String): First Name.</li>
+                                <li>last_name (String): First Name.</li>
+                                <li>email (String): Email.</li>
+                                <li>password (String): Password.</li>
+                            </ul>
+                        </p></dd>
+                        <dt><h3>Meals</h3></dt>
+                        <dd><p>Represents meal details.</p>
+                        <p>Meal attributes:
+                            <ul>
+                                <li>id (Integer): Primary key.</li>
+                                <li>name (String): Name.</li>
+                                <li>description (String): Description.</li>
+                                <li>price (float): Price.</li>
+                            </ul>
+                        </p></dd>
+                        <dt><h3>Menus</h3></dt>
+                        <dd><p>Represents menu details.</p>
+                        <p>Menu attributes:
+                            <ul>
+                                <li>id (Integer): Primary key.</li>
+                                <li>name (String): Name.</li>
+                                <li>day(String): Day.</li>
+                            </ul>
+                        </p></dd>
+                        <dt><h3>Orders</h3></dt>
+                        <dd><p>Represents order details.</p>
+                        <p>Order attributes:
+                            <ul>
+                                <li>id (Integer): Primary key.</li>
+                                <li>total (Float): Total.</li>
+                            </ul>
+                        </p></dd>
+                    </dl>
+            </div>
+        </section>
+        <aside>
+            <h2>Code Example</h2>
+            <p>
+                const url = ('https://meal-paddy.herokuapp.com/api/v1/meals');<br>
+                fetch(url).then(res => {<br>
+                    &emsp;return res.json();<br>
+                }).then(myJson => {<br>
+                    &emsp;console.log(myJson.data);<br>
+                }).catch(err => {<br>
+                    &emsp;console.log('Error fetching url');<br>
+                }); <br> <br>
+                //Console response <br>
+                [ <br>
+                &emsp;{ <br>
+                    &emsp;id: 1, name: "Chicken Burger", description: "A lot of chicken", price: 3000, createdAt: "2019-03-06T17:04:51.309Z" <br>
+                }, { <br>
+                    &emsp;id: 2, name: "BBQ Pizza", description: "BBQ in Pizza", price: 5000, createdAt: "2019-03-06T17:04:51.309Z" <br>
+                }, { <br>
+                    &emsp;id: 3, name: "Chocolate Cake", description: "Chocolate thats never late", price: 2000, createdAt: "2019-03-06T17:04:51.309Z" <br>
+                &emsp;} <br>
+                ] 
+            </p>
+        </aside>
+    </main>
+</body>
+</html>
