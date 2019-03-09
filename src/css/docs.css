@@ -79,10 +79,15 @@ section div{
     color: #0a1b2c;
 }
 
+#errors a, #reference h3{
+    color: #6ca03c;
+}
+
 aside{
     background: #000000;
     width: 30%;
     color: #f1fffa;
+    padding: 2rem;
 }
 
 aside h2{

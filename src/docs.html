@@ -11,7 +11,7 @@
     <main>
         <nav>
             <a href="index.html"><h1><span class="light-color"> Meal-</span>Paddy<span class="light-color">-API</span></h1></a>
-            <h2>Documentation</h2>
+            <h2 onclick="fetchUrl()">Documentation</h2>
             <hr>
             <ul>
                 <a href="#introduction" class="active"><li>Introduction</li></a>
@@ -87,18 +87,98 @@
                                 <td>PUT /orders/</td>
                                 <td>Modify an order</td>
                             </tr>
+                            <tr>
+                                <td>POST /register/</td>
+                                <td>Register new user</td>
+                            </tr>
+                            <tr>
+                                <td>POST /login/</td>
+                                <td>Login in existing user</td>
+                            </tr>
+                            <tr>
+                                <td>GET /me/</td>
+                                <td>Get current user details</td>
+                            </tr>
                         </tbody>
                     </table>
             </div>
             <div id="errors">
                     <h2 class="title">Errors</h2>
+                    <p>The followiing are common practices that may lead to errors</p>
+                    <ul>
+                        <li>Sending a wrong request</li>
+                        <li>Trying to access authenticated routes without being authenticated</li>
+                        <li>Send the wrong data: please check <a href="#reference">Reference</a> to see
+                        data formats</li>
+                    </ul>
+                    <p>Ensure the above are done correctly.</p>
             </div>
             <div id="reference">
                     <h2 class="title">Reference</h2>
+                    <dl>
+                        <dt><h3>Users</h3></dt>
+                        <dd><p>Represents user details.</p>
+                        <p>User attributes:
+                            <ul>
+                                <li>id (Integer): Primary key.</li>
+                                <li>first_name (String): First Name.</li>
+                                <li>last_name (String): First Name.</li>
+                                <li>email (String): Email.</li>
+                                <li>password (String): Password.</li>
+                            </ul>
+                        </p></dd>
+                        <dt><h3>Meals</h3></dt>
+                        <dd><p>Represents meal details.</p>
+                        <p>Meal attributes:
+                            <ul>
+                                <li>id (Integer): Primary key.</li>
+                                <li>name (String): Name.</li>
+                                <li>description (String): Description.</li>
+                                <li>price (float): Price.</li>
+                            </ul>
+                        </p></dd>
+                        <dt><h3>Menus</h3></dt>
+                        <dd><p>Represents menu details.</p>
+                        <p>Menu attributes:
+                            <ul>
+                                <li>id (Integer): Primary key.</li>
+                                <li>name (String): Name.</li>
+                                <li>day(String): Day.</li>
+                            </ul>
+                        </p></dd>
+                        <dt><h3>Orders</h3></dt>
+                        <dd><p>Represents order details.</p>
+                        <p>Order attributes:
+                            <ul>
+                                <li>id (Integer): Primary key.</li>
+                                <li>total (Float): Total.</li>
+                            </ul>
+                        </p></dd>
+                    </dl>
             </div>
         </section>
         <aside>
             <h2>Code Example</h2>
+            <p>
+                const url = ('https://meal-paddy.herokuapp.com/api/v1/meals');<br>
+                fetch(url).then(res => {<br>
+                    &emsp;return res.json();<br>
+                }).then(myJson => {<br>
+                    &emsp;console.log(myJson.data);<br>
+                }).catch(err => {<br>
+                    &emsp;console.log('Error fetching url');<br>
+                }); <br> <br>
+                //Console response <br>
+                [ <br>
+                &emsp;{ <br>
+                    &emsp;id: 1, name: "Chicken Burger", description: "A lot of chicken", price: 3000, createdAt: "2019-03-06T17:04:51.309Z" <br>
+                }, { <br>
+                    &emsp;id: 2, name: "BBQ Pizza", description: "BBQ in Pizza", price: 5000, createdAt: "2019-03-06T17:04:51.309Z" <br>
+                }, { <br>
+                    &emsp;id: 3, name: "Chocolate Cake", description: "Chocolate thats never late", price: 2000, createdAt: "2019-03-06T17:04:51.309Z" <br>
+                &emsp;} <br>
+                ] 
+            </p>
         </aside>
     </main>
 </body>
