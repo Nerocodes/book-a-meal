@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meal-Paddy Documentation</title>
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+<body>
+    <main>
+        <nav>
+            <a href="index.html"><h1><span class="light-color"> Meal-</span>Paddy<span class="light-color">-API</span></h1></a>
+            <h2>Documentation</h2>
+            <hr>
+            <ul>
+                <a href="#introduction" class="active"><li>Introduction</li></a>
+                <a href="#authentication"><li>Authentication</li></a>
+                <a href="#http"><li>Allowed HTTP Requests</li></a>
+                <a href="#errors"><li>Errors</li></a>
+                <a href="#reference"><li>Reference</li></a>
+            </ul>
+        </nav>
+        <section>
+            <div id="introduction">
+                <h2 class="title">Introduction</h2>
+                <p>
+                    Meal-Paddy-API is an api which allows users to book/order meals. 
+                    You can easily integrate it with your meal booking service and enjoy secure 
+                    meal booking. This documentation will help you get started. <br>
+                    URL: /api/v1/request
+                </p>
+            </div>
+            <div id="authentication">
+                    <h2 class="title">Authentication</h2>
+                    <p>
+                        Meal-Paddy-API is authenticated with JWT (Json Web Tokens).
+                        The token is sent through the x-access-token Header in the request for
+                        authenticated routes. The token is valid for 24hours after it has been generated.
+                        Only authenticated users have access to the order routes. <br>
+                        URL: /api/v1/auth/request
+                    </p>
+            </div>
+            <div id="http">
+                    <h2 class="title">Allowed HTTP Requests</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Endpoint</th>
+                                <th>Functionality</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GET /meals/</td>
+                                <td>Get all meal options</td>
+                            </tr>
+                            <tr>
+                                <td>POST /meals/</td>
+                                <td>Add a meal option</td>
+                            </tr>
+                            <tr>
+                                <td>PUT /meals/>mealid<</td>
+                                <td>Update the information of a meal option</td>
+                            </tr>
+                            <tr>
+                                <td>DELETE /meals/>mealid<</td>
+                                <td>Remove a meal option</td>
+                            </tr>
+                            <tr>
+                                <td>GET /menu/</td>
+                                <td>Get the menu for the day</td>
+                            </tr>
+                            <tr>
+                                <td>POST /menu/</td>
+                                <td>Setup the menu for the day</td>
+                            </tr>
+                            <tr>
+                                <td>GET /orders/</td>
+                                <td>Get all the orders</td>
+                            </tr>
+                            <tr>
+                                <td>POST /orders/</td>
+                                <td>Select the meal option from the menu</td>
+                            </tr>
+                            <tr>
+                                <td>PUT /orders/</td>
+                                <td>Modify an order</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            <div id="errors">
+                    <h2 class="title">Errors</h2>
+            </div>
+            <div id="reference">
+                    <h2 class="title">Reference</h2>
+            </div>
+        </section>
+        <aside>
+            <h2>Code Example</h2>
+        </aside>
+    </main>
+</body>
+</html>
